@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>藍色アポロ / 活動方針 ＆ DIY MV計画 共有資料</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0A192F;
+      --bg-deep: #06111F;
+      --card: rgba(17, 34, 64, 0.78);
+      --card-solid: #112240;
+      --accent: #64FFDA;
+      --accent-soft: rgba(100, 255, 218, 0.12);
+      --accent-border: rgba(100, 255, 218, 0.42);
+      --text: #CCD6F6;
+      --text-muted: #8892B0;
+      --text-strong: #E6F1FF;
+      --border: rgba(204, 214, 246, 0.14);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --shadow-soft: 0 14px 36px rgba(0, 0, 0, 0.22);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Noto Sans JP", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at 15% 8%, rgba(100, 255, 218, 0.16), transparent 28%),
+        radial-gradient(circle at 85% 12%, rgba(86, 125, 255, 0.14), transparent 28%),
+        linear-gradient(135deg, var(--bg-deep) 0%, var(--bg) 48%, #071323 100%);
+      line-height: 1.85;
+      letter-spacing: 0.02em;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.23;
+      background-image:
+        linear-gradient(rgba(204, 214, 246, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(204, 214, 246, 0.045) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.15));
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      mix-blend-mode: screen;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 48px 0 72px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      position: relative;
+      padding: clamp(32px, 6vw, 76px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(135deg, rgba(17, 34, 64, 0.94), rgba(10, 25, 47, 0.72)),
+        radial-gradient(circle at 90% 8%, rgba(100, 255, 218, 0.16), transparent 32%);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 999px;
+      top: -190px;
+      right: -110px;
+      border: 1px solid rgba(100, 255, 218, 0.24);
+      box-shadow: inset 0 0 80px rgba(100, 255, 218, 0.08);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 5px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.85;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      color: var(--accent);
+      font-family: "Inter", "Noto Sans JP", sans-serif;
+      font-weight: 800;
+      font-size: 0.84rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--accent);
+      box-shadow: 0 0 14px rgba(100, 255, 218, 0.8);
+    }
+
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      color: var(--text-strong);
+      font-size: clamp(2.05rem, 6vw, 4.9rem);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+    }
+
+    .hero-lead {
+      max-width: 780px;
+      margin: 28px 0 0;
+      color: var(--text);
+      font-size: clamp(1rem, 2vw, 1.24rem);
+      font-weight: 500;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border: 1px solid var(--accent-border);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--text-strong);
+      font-size: 0.86rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .pill span {
+      color: var(--accent);
+      font-family: "Inter", sans-serif;
+      font-weight: 900;
+    }
+
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0 22px;
+    }
+
+    .toc a {
+      display: flex;
+      min-height: 74px;
+      padding: 16px;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(17, 34, 64, 0.56);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 800;
+      line-height: 1.45;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .toc a:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-border);
+      background: rgba(100, 255, 218, 0.08);
+    }
+
+    section {
+      margin-top: 22px;
+      padding: clamp(24px, 4vw, 42px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--card);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+
+    .section-num {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--accent-border);
+      border-radius: 15px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      font-weight: 900;
+      line-height: 1;
+      box-shadow: 0 0 34px rgba(100, 255, 218, 0.12);
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--text-strong);
+      font-size: clamp(1.45rem, 3.4vw, 2.32rem);
+      line-height: 1.25;
+      letter-spacing: -0.035em;
+      font-weight: 900;
+    }
+
+    .section-sub {
+      margin: 8px 0 0;
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      font-weight: 600;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mini-card {
+      position: relative;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(17, 34, 64, 0.82), rgba(10, 25, 47, 0.52));
+      overflow: hidden;
+    }
+
+    .mini-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-top: 2px solid rgba(100, 255, 218, 0.42);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .mini-card h3 {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 1.03rem;
+      line-height: 1.4;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.96rem;
+    }
+
+    strong {
+      color: var(--text-strong);
+      font-weight: 900;
+    }
+
+    .goal-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(10, 25, 47, 0.48);
+    }
+
+    .goal-table th,
+    .goal-table td {
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .goal-table tr:last-child th,
+    .goal-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .goal-table th {
+      width: 190px;
+      color: var(--accent);
+      background: rgba(100, 255, 218, 0.07);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .goal-table td {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .big-policy {
+      display: grid;
+      grid-template-columns: 0.95fr 1.4fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .statement {
+      padding: 26px;
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(145deg, rgba(100, 255, 218, 0.15), rgba(17, 34, 64, 0.48)),
+        rgba(17, 34, 64, 0.68);
+    }
+
+    .statement .label {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-family: "Inter", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .statement .main {
+      margin: 0;
+      color: var(--text-strong);
+      font-size: clamp(1.5rem, 3vw, 2.35rem);
+      line-height: 1.28;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+    }
+
+    .policy-body {
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(10, 25, 47, 0.48);
+    }
+
+    .policy-body p {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .policy-body p + p {
+      margin-top: 16px;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .feature {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(10, 25, 47, 0.42);
+    }
+
+    .feature.full {
+      grid-column: 1 / -1;
+    }
+
+    .feature-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      color: var(--text-strong);
+      font-size: 1.08rem;
+      line-height: 1.4;
+      font-weight: 900;
+    }
+
+    .feature-title::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(100, 255, 218, 0.9);
+    }
+
+    .feature p {
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 24px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .list li::before {
+      content: "■";
+      position: absolute;
+      left: 0;
+      top: 0.15em;
+      color: var(--accent);
+      font-size: 0.68rem;
+      line-height: 1;
+    }
+
+    .request {
+      position: relative;
+      margin-top: 22px;
+      padding: clamp(26px, 4vw, 42px);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at 8% 18%, rgba(100, 255, 218, 0.18), transparent 26%),
+        linear-gradient(135deg, rgba(17, 34, 64, 0.95), rgba(10, 25, 47, 0.84));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .request::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: -110px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px solid rgba(100, 255, 218, 0.26);
+      box-shadow: inset 0 0 70px rgba(100, 255, 218, 0.08);
+    }
+
+    .request h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .request p {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0;
+      color: var(--text-strong);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      font-weight: 700;
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding: 20px 4px 0;
+      color: var(--text-muted);
+      font-family: "Inter", "Noto Sans JP", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .toc {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .big-policy,
+      .mv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature.full {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(calc(100% - 22px), var(--max));
+        padding: 18px 0 42px;
+      }
+
+      .hero {
+        padding: 30px 22px 34px;
+        border-radius: 22px;
+      }
+
+      section,
+      .request {
+        padding: 24px 18px;
+        border-radius: 22px;
+      }
+
+      .toc {
+        grid-template-columns: 1fr;
+      }
+
+      .toc a {
+        min-height: auto;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .section-num {
+        width: 40px;
+        height: 40px;
+        border-radius: 13px;
+      }
+
+      .mini-card,
+      .statement,
+      .policy-body,
+      .feature {
+        padding: 19px;
+      }
+
+      .goal-table,
+      .goal-table tbody,
+      .goal-table tr,
+      .goal-table th,
+      .goal-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .goal-table th {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .goal-table td {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .goal-table tr:last-child td {
+        border-bottom: none;
+      }
+    }
+
+    @media print {
+      body {
+        background: #0A192F;
+      }
+
+      body::before,
+      body::after,
+      .toc {
+        display: none;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      section,
+      .request {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">Aiiro Apollo / Strategy Deck</div>
+      <h1>藍色アポロ / 活動方針 ＆ DIY MV計画 共有資料</h1>
+      <p class="hero-lead">
+        2000年代オルタナティヴ・ロックのソリッドな質感を軸に、無理なく長く続けるための活動方針と、iPhoneで作るDIY MV計画を整理した共有資料。
+      </p>
+      <div class="hero-meta">
+        <span class="pill"><span>01</span> 音源制作・WEB発信へシフト</span>
+        <span class="pill"><span>02</span> 年1回の自主企画に集中</span>
+        <span class="pill"><span>03</span> DIY MV / ショート動画運用</span>
+      </div>
+    </header>
+
+```
+<nav class="toc" aria-label="目次">
+  <a href="#identity">1. 現在地とアイデンティティ</a>
+  <a href="#northstar">2. 3年目の目標</a>
+  <a href="#policy">3. 今後の大方針</a>
+  <a href="#mv">4. DIY MV大作戦</a>
+  <a href="#request">5. メンバーへのお願い</a>
+</nav>
+
+<section id="identity">
+  <div class="section-head">
+    <div class="section-num">01</div>
+    <div>
+      <h2>藍色アポロの「現在地」と「アイデンティティ」</h2>
+      <p class="section-sub">好きな音楽を、生活を壊さず、長く鳴らし続ける。</p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <article class="mini-card">
+      <h3>スタイル</h3>
+      <p>
+        <strong>2000年代の王道ギターロック</strong>（アジカン、ベボベ等）を踏襲した、自分たちの本当に好きな音楽を鳴らす。
+      </p>
+    </article>
+
+    <article class="mini-card">
+      <h3>ライフワークバランス</h3>
+      <p>
+        各個人の人生や生活を最優先し、<strong>無理ない範囲で楽しく長く続ける。</strong>
+      </p>
+    </article>
+
+    <article class="mini-card">
+      <h3>リスナーの増やし方</h3>
+      <p>
+        <strong>「バズ」は狙わない。</strong>時代に媚びず、楽曲の良さによる「口コミ」や「サブスクの定着」を狙う。耳の肥えた20代〜30代前半がコアターゲット。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="northstar">
+  <div class="section-head">
+    <div class="section-num">02</div>
+    <div>
+      <h2>3年目の目標（私たちが目指す北極星）</h2>
+      <p class="section-sub">活動の判断基準を明確にするための定量目標。</p>
+    </div>
+  </div>
+
+  <table class="goal-table">
+    <tbody>
+      <tr>
+        <th>ライブ</th>
+        <td>下北沢近松（ホーム）での自主企画を毎年ソールドアウト（約150〜200人動員）。</td>
+      </tr>
+      <tr>
+        <th>サブスク</th>
+        <td>月間総リスナー1万人（製作費をサブスク収入でペイできる状態を永続維持）。</td>
+      </tr>
+      <tr>
+        <th>SNS</th>
+        <td>総フォロワー1万人（Instagram / YouTubeメイン）。</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="policy">
+  <div class="section-head">
+    <div class="section-num">03</div>
+    <div>
+      <h2>今後の活動の「大方針」</h2>
+      <p class="section-sub">ライブ本数を増やすのではなく、濃度を上げる。</p>
+    </div>
+  </div>
+
+  <div class="big-policy">
+    <div class="statement">
+      <span class="label">Core Direction</span>
+      <p class="main">活動の優先度を<br>「音源制作・WEB発信」へシフト。</p>
+    </div>
+
+    <div class="policy-body">
+      <p>
+        活動の優先度を「音源制作・WEB発信」にシフトし、ライブは<strong>【年1〜4回】</strong>に絞ります。
+      </p>
+      <p>
+        その代わり、毎年3月に開催する<strong>「下北沢近松での自主企画」</strong>に全リソースを集中させます。
+      </p>
+      <p>
+        普段はリスナーの生活に寄り添うスタンスでありつつ、年1回はPA・照明・ゲネプロ・対バンすべてをガチガチに作り込み、<span class="highlight">「最高の非日常空間」</span>をファンの前に出現させます。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="mv">
+  <div class="section-head">
+    <div class="section-num">04</div>
+    <div>
+      <h2>お金をかけない「DIY MV ＆ ショート動画」大作戦</h2>
+      <p class="section-sub">予算よりも、質感・構成・切り取り方で勝つ。</p>
+    </div>
+  </div>
+
+  <div class="feature full">
+    <h3 class="feature-title">DIYの基本方針</h3>
+    <p>
+      音源制作やMVに予算をかけすぎず、持続可能性を保つために<strong>「自分たちで構成・撮影・編集をすべてやる（DIY）」</strong>ことに挑戦します。アジカンや2000年代オルタナの精神を引き継ぐ、<strong>「演奏シーンをあえて一切入れない、日常の質感重視MV」</strong>をiPhone1台で作ります。
+    </p>
+  </div>
+
+  <div class="mv-grid">
+    <article class="feature">
+      <h3 class="feature-title">使用機材</h3>
+      <p>
+        <strong>iPhone ＋ アプリ『8ミリカメラ』</strong><br>
+        現代の綺麗な画質から一歩抜け出し、2000年代初頭のインディーズ特有の「青みがかったザラついた質感」や「魚眼レンズ（Fisheye）」をリアルに再現します。
+      </p>
+    </article>
+
+    <article class="feature">
+      <h3 class="feature-title">楽曲『生活』の方向性</h3>
+      <p>
+        深夜〜明け方の街、スタジオ帰り、ロビー、コインランドリーなど、生活の隙間にある寂しさと温度を映像化します。
+      </p>
+    </article>
+
+    <article class="feature">
+      <h3 class="feature-title">ロケーション</h3>
+      <ul class="list">
+        <li>深夜〜明け方の下北沢の街</li>
+        <li>踏切</li>
+        <li>スタジオの帰り道</li>
+        <li>ロビー</li>
+        <li>コインランドリー</li>
+      </ul>
+    </article>
+
+    <article class="feature">
+      <h3 class="feature-title">撮り方（みゃん担当）</h3>
+      <ul class="list">
+        <li>三脚は使わず、手持ちで撮影。</li>
+        <li>メンバーの顔をバシッと映すのではなく、生活のディテールにクローズアップ。</li>
+        <li>「後ろ姿」「缶コーヒーを買う手元」「歩く足元」など、エモい質感を切り取る。</li>
+      </ul>
+    </article>
+
+    <article class="feature full">
+      <h3 class="feature-title">編集の仕掛け</h3>
+      <p>
+        サビなどの爆発する瞬間（「生活〜♪」のところ）で、アプリの<strong>「魚眼レンズ（Fisheye）モード」</strong>を使い、3人がギュッと画面に収まるカットをハメます。エフェクトは使わず、ドラムのスネアの音（テンポ）に合わせて映像をブツ切りで繋ぐだけ。これだけでプロ級の疾走感が出ます。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="request" class="request">
+  <h2>👥 メンバーへのお願い（ファーストステップ）</h2>
+  <p>
+    次のスタジオ練習の時、みゃんがスマホで「メンバーの日常（移動中や休憩中、楽器を持ってる姿）」を試しに数カット、8ミリカメラアプリでテスト撮影します！面倒な作業や配信、ガチガチの演技は一切不要です。普段通りの佇まいを切り取るだけなので、気楽に協力してください！
+  </p>
+</section>
+
+<footer class="footer">
+  AIIRO APOLLO — ACTIVITY POLICY & DIY MV PLAN
+</footer>
+```
+
+  </main>
+</body>
+</html>
